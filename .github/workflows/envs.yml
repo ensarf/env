@@ -1,18 +1,19 @@
 name: envs
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }}
 on: 
   workflow_dispatch:
     inputs:
       namespace:
         type: choice
         options:
-          - e
+          - dev
 jobs:
   deployment:
-    runs-on: ubuntu-latest
-    environment: e
+    #runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: deploy
         run: |
-          echo wurst
-          echo ${{ secrets.THE_ONE }}
+          echo blargh
+          echo ${{ secrets.BLARGH }}
+          echo ${{ secrets }}
