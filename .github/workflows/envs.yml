@@ -9,7 +9,7 @@ on:
           - dev
 jobs:
   deployment:
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     environment: dev
     steps:
       - name: deploy
