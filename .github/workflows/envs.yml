@@ -12,8 +12,7 @@ jobs:
   deployment:
     strategy:
       matrix:
-        secret: ${{ fromJSON(secrets) }}
-        #secret: [ "BLARGH", "KRRR" ]
+        secret: [ "BLARGH", "KRRR" ]
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
