@@ -10,7 +10,13 @@ on:
           - test
 env:
   #CLUSTER: wurst
-  CLUSTER: ${{ fromJson('{"dev":"dev_cluster","test":"test_cluster"}')[inputs.namespace] }}
+  CLUSTER: >
+    ${{ fromJson(
+          '{
+            "dev":"dev_cluster",
+            "test":"test_cluster"
+           }'
+        )[inputs.namespace] }}
   #CLUSTER: ${{ fromJson('{ "dev": "dev_cluster", "test": "test_cluster" }')[github.event.inputs.namespace] }}
 
 jobs:
