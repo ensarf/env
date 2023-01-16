@@ -7,10 +7,11 @@ on:
         type: choice
         options:
           - dev
+          - e
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: ${{ inputs.namespace }}
     steps:
       - name: deploy
         run: |
