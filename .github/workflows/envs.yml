@@ -20,3 +20,4 @@ jobs:
       - name: deploy
         run: |
           echo "${{ matrix.secret }}: ${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
+          echo "${{ matrix.secret }}: ${{ inputs.namespace }}_${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
