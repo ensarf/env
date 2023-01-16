@@ -23,6 +23,6 @@ jobs:
     steps:
       - name: deploy
         run: |
-          echo env.CLUSTER
+          echo ${{ env.CLUSTER }}
           echo "${{ matrix.secret }}: ${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
           echo "${{ matrix.secret }}: ${{ inputs.namespace }}_${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
