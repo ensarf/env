@@ -16,5 +16,4 @@ jobs:
       - name: deploy
         run: |
           echo BLARGH
-          echo ${{ secrets.BLARGH }} > test
-          cat test
+          echo ${{ secrets.BLARGH }} | tr '[:lower:]' '[:upper:]'
