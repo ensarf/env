@@ -7,15 +7,16 @@ on:
         type: choice
         options:
           - dev
-          - e
+          - test
 jobs:
   deployment:
     strategy:
       matrix:
-        secrets: [ "BLARGH", "KRRR" ]
+        secret: ${{ fromJSON(secrets) }}
+        #secret: [ "BLARGH", "KRRR" ]
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
       - name: deploy
         run: |
-          echo "${{ matrix.secrets }}: ${{ secrets[matrix.secrets] }}" | tr '[:lower:]' '[:upper:]'
+          echo "${{ matrix.secret }}: ${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
