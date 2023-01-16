@@ -10,10 +10,13 @@ on:
           - e
 jobs:
   deployment:
+    strategy:
+      matrix:
+        secrets: [ "BLARGH" ]
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
       - name: deploy
         run: |
-          echo BLARGH
-          echo ${{ secrets.BLARGH }} | tr '[:lower:]' '[:upper:]'
+          #echo "BLARGH: ${{ secrets.BLARGH }}" | tr '[:lower:]' '[:upper:]'
+          echo "BLARGH: ${{ secrets[matrix.secrets] }}" | tr '[:lower:]' '[:upper:]'
