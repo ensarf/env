@@ -15,6 +15,6 @@ jobs:
     steps:
       - name: deploy
         run: |
-          echo blargh
-          echo ${{ secrets.BLARGH }}
-          echo ${{ secrets }}
+          echo BLARGH
+          echo ${{ secrets.BLARGH }} > test
+          cat test
