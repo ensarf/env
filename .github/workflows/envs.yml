@@ -8,6 +8,9 @@ on:
         options:
           - dev
           - test
+env:
+  CLUSTER: ${{ fromJson('{ "dev": "dev_cluster", "test": "test_cluster" }')[github.event.inputs.namespace] }}
+
 jobs:
   deployment:
     strategy:
@@ -18,5 +21,6 @@ jobs:
     steps:
       - name: deploy
         run: |
+          echo env.CLUSTER
           echo "${{ matrix.secret }}: ${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
           echo "${{ matrix.secret }}: ${{ inputs.namespace }}_${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
