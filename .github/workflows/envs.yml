@@ -1,5 +1,6 @@
 name: envs
-run-name: ${{ github.actor }}
+#run-name: ${{ github.actor }}
+run-name: wurst
 on: 
   workflow_dispatch:
     inputs:
@@ -9,7 +10,6 @@ on:
           - dev
           - test
 env:
-  #CLUSTER: wurst
   GCP_PROJECT: >
     ${{ fromJson(
           '{
@@ -17,7 +17,6 @@ env:
             "test":"test_cluster"
            }'
         )[inputs.namespace] }}
-  #CLUSTER: ${{ fromJson('{ "dev": "dev_cluster", "test": "test_cluster" }')[github.event.inputs.namespace] }}
 
 jobs:
   deployment:
