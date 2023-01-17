@@ -1,6 +1,6 @@
 name: Transfere github env to secret manager
 #run-name: ${{ github.actor }}
-run-name: ${{ inputs.namespace }}
+run-name: Env: ${{ inputs.namespace }}
 on: 
   workflow_dispatch:
     inputs:
