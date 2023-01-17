@@ -19,14 +19,15 @@ env:
         )[inputs.namespace] }}
 
 jobs:
-  deployment:
+  secret:
+    name: Set Secrets in Secret Manager
     strategy:
       matrix:
         secret: [ "BLARGH", "KRRR" ]
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
-      - name: deploy
+      - name: Print for debugging
         run: |
           echo ${{ env.GCP_PROJECT }}
           echo "${{ matrix.secret }}: ${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
