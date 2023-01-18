@@ -31,10 +31,8 @@ jobs:
       matrix:
         secret: |
           ${{ fromJson(
-            '{
-              "dev":["BLARGH","KRRR","ONK"],
-              "test":["BLARGH","KRRR"]
-            }'
+            '{"dev":["BLARGH","KRRR","ONK"],
+              "test":["BLARGH","KRRR"]}'
           )[inputs.namespace] }}
       #matrix:
       #  secret: |
