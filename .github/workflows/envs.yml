@@ -24,13 +24,13 @@ jobs:
     strategy:
       matrix:
         secret: [ BLARGH, KRRR, ONK ]
-      #matrix: >
-      #    ${{ fromJson(
-      #      '{
-      #        "dev": [ "BLARGH", "KRRR", ONK" ],
-      #        "test": [ "BLARGH, "KRRR" ]
-      #       }'
-      #    ) }}
+      matrix: >
+        '${{ fromJson(
+          \'{
+            "dev": [ "BLARGH", "KRRR", "ONK" ],
+            "test": [ "BLARGH", "KRRR" ]
+           }\'
+        )[inputs.namespace] }}'
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
