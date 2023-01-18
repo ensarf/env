@@ -23,14 +23,21 @@ jobs:
     name: Set Secrets in Secret Manager
     strategy:
       matrix:
-        secret: [ "BLARGH", "KRRR", "ONK" ]
+        #secret: [ "BLARGH", "KRRR", "ONK" ]
+        secret: >
+          ${{ fromJson(
+            '{
+              "dev": [ "BLARGH", "KRRR", "ONK" ],
+              "test": [ "BLARGH", "KRRR" ]
+             }'
+          )[inputs.namespace] }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
       - name: Print for debugging
         run: |
           if [ "${{ secrets[matrix.secret] }}" = "" ]; then
-            echo "${{ matrix.secret }} is empty"
+            echo "ENV variable ${{ matrix.secret }} is not set"
             exit 1
           fi
           echo ${{ env.GCP_PROJECT }}
