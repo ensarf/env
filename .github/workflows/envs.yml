@@ -17,6 +17,13 @@ env:
             "test":"test_cluster"
            }'
         )[inputs.namespace] }}
+  ENV_VARIABLES: >
+    ${{ fromJson(
+      '{
+        "dev": [ "BLARGH", "KRRR", "ONK" ],
+        "test": [ "BLARGH", "KRRR" ]
+       }'
+    )[inputs.namespace]) }}
 
 jobs:
   secret:
@@ -25,7 +32,9 @@ jobs:
       #matrix:
       #  secret: [ BLARGH, KRRR, ONK ]
       matrix:
-        secret: ${{ fromJson('["BLARGH","KRRR","ONK"]') }}
+        secret: ${{ fromJson(env.ENV_VARIABLES) }}
+      #matrix:
+      #  secret: ${{ fromJson('["BLARGH","KRRR","ONK"]') }}
       #matrix:
       #  secret: |
       #    ${{ fromJson(
