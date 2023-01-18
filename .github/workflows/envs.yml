@@ -22,15 +22,15 @@ jobs:
   secret:
     name: Set Secrets in Secret Manager
     strategy:
-      matrix:
+      #matrix:
         #secret: [ "BLARGH", "KRRR", "ONK" ]
-        secret: >
+      natrix: >
           ${{ fromJson(
             '{
-              "dev": [ BLARGH, KRRR, ONK ],
-              "test": [ BLARGH, KRRR ]
+              "dev": [ "BLARGH", "KRRR", ONK" ],
+              "test": [ "BLARGH, "KRRR" ]
              }'
-          )[inputs.namespace] }}
+          ) }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
