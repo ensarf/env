@@ -31,10 +31,12 @@ jobs:
     strategy:
       #matrix:
       #  secret: [ BLARGH, KRRR, ONK ]
-      matrix:
-        secret: ${{ fromJson(env.ENV_VARIABLES) }}
+      #matrix:
+      #  secret: ${{ fromJson(github.env.ENV_VARIABLES) }}
       #matrix:
       #  secret: ${{ fromJson('["BLARGH","KRRR","ONK"]') }}
+      matrix:
+        secret: ${{ fromJson( '{"dev":["BLARGH","KRRR","ONK"],"test":["BLARGH","KRRR"]}')[inputs.namespace]) }}
       #matrix:
       #  secret: |
       #    ${{ fromJson(
