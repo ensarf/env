@@ -29,6 +29,10 @@ jobs:
     steps:
       - name: Print for debugging
         run: |
+          if [ "${{ secrets[matrix.secret] }}" = "" ]; then
+            echo "${{ matrix.secret }} is empty"
+            exit 1
+          fi
           echo ${{ env.GCP_PROJECT }}
           echo "${{ matrix.secret }}: ${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
           echo "${{ matrix.secret }}: ${{ inputs.namespace }}_${{ secrets[matrix.secret] }}" | tr '[:lower:]' '[:upper:]'
