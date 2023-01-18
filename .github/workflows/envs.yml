@@ -27,8 +27,8 @@ jobs:
         secret: >
           ${{ fromJson(
             '{
-              "dev": [ "BLARGH", "KRRR", "ONK" ],
-              "test": [ "BLARGH", "KRRR" ]
+              "dev": [ BLARGH, KRRR, ONK ],
+              "test": [ BLARGH, KRRR ]
              }'
           )[inputs.namespace] }}
     runs-on: ubuntu-latest
