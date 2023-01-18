@@ -33,7 +33,7 @@ jobs:
               "dev": [ "BLARGH", "KRRR", "ONK" ],
               "test": [ "BLARGH", "KRRR" ]
              }'
-          )[inputs.namespace]) }}
+          )[inputs.namespace] }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
