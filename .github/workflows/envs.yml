@@ -25,7 +25,7 @@ jobs:
       #matrix:
       #  secret: [ BLARGH, KRRR, ONK ]
       matrix:
-        secret: |
+        secret: >
         ${{ fromJson(
           '{
             "dev": [ "BLARGH", "KRRR", "ONK" ],
