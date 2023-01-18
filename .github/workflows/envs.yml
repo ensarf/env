@@ -23,7 +23,7 @@ jobs:
     name: Set Secrets in Secret Manager
     strategy:
       matrix:
-        secret: [ "BLARGH", "KRRR" ]
+        secret: [ "BLARGH", "KRRR", "ONK" ]
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
