@@ -24,7 +24,7 @@ jobs:
     strategy:
       #matrix:
         #secret: [ "BLARGH", "KRRR", "ONK" ]
-      natrix: >
+      matrix: >
           ${{ fromJson(
             '{
               "dev": [ "BLARGH", "KRRR", ONK" ],
