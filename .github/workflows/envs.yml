@@ -23,7 +23,7 @@ env:
         "dev": [ "BLARGH", "KRRR", "ONK" ],
         "test": [ "BLARGH", "KRRR" ]
        }'
-    )[inputs.namespace]) }}
+    )[inputs.namespace] }}
 
 jobs:
   secret:
