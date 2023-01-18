@@ -32,7 +32,7 @@ jobs:
       #matrix:
       #  secret: [ BLARGH, KRRR, ONK ]
       matrix:
-        secret: ${{ fromJson(env.ENV_VARIABLES) }}
+        secret: ${{ fromJson(github.env.ENV_VARIABLES) }}
       #matrix:
       #  secret: ${{ fromJson('["BLARGH","KRRR","ONK"]') }}
       #matrix:
