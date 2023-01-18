@@ -25,19 +25,15 @@ jobs:
       #matrix:
       #  secret: [ BLARGH, KRRR, ONK ]
       #matrix:
-      #  secret: ${{ fromJson(github.env.ENV_VARIABLES) }}
-      #matrix:
-      #  secret: ${{ fromJson('["BLARGH","KRRR","ONK"]') }}
+      #  secret: ${{ fromJson('{"dev":["BLARGH","KRRR","ONK"],"test":["BLARGH","KRRR"]}')[inputs.namespace] }}
       matrix:
-        secret: ${{ fromJson('{"dev":["BLARGH","KRRR","ONK"],"test":["BLARGH","KRRR"]}')[inputs.namespace] }}
-      #matrix:
-      #  secret: |
-      #    ${{ fromJson(
-      #      '{
-      #        "dev": [ "BLARGH", "KRRR", "ONK" ],
-      #        "test": [ "BLARGH", "KRRR" ]
-      #       }'
-      #    )[inputs.namespace]) }}
+        secret: >-
+          ${{ fromJson(
+            '{
+              "dev": [ "BLARGH", "KRRR", "ONK" ],
+              "test": [ "BLARGH", "KRRR" ]
+             }'
+          )[inputs.namespace]) }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.namespace }}
     steps:
