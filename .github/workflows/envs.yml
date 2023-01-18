@@ -10,13 +10,13 @@ on:
           - dev
           - test
 env:
-  GCP_PROJECT: >
+  GCP_PROJECT: >-
     ${{ fromJson(
-          '{
-            "dev":"dev_cluster",
-            "test":"test_cluster"
-           }'
-        )[inputs.namespace] }}
+      '{
+        "dev":"dev_cluster",
+        "test":"test_cluster"
+       }'
+    )[inputs.namespace] }}
 
 jobs:
   secret:
@@ -30,8 +30,8 @@ jobs:
         secret: >-
           ${{ fromJson(
             '{
-              "dev": [ "BLARGH", "KRRR", "ONK" ],
-              "test": [ "BLARGH", "KRRR" ]
+              "dev": [ "BLARGH", "KRRR" ],
+              "test": [ "BLARGH", "KRRR" "ONK" ]
              }'
           )[inputs.namespace] }}
     runs-on: ubuntu-latest
